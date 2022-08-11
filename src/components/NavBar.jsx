@@ -1,12 +1,15 @@
-import { Pressable } from "react-native"
+import { Link } from "react-router-native"
 import Text from "./Text"
 
 const NavBar = () => {
     return (
         <>
-            <Pressable>
+            <Link to='/'>
                 <Text marginLeft color={'appBar'} fontSize={'appBar'} fontWeight={'bold'}>Repositories</Text>
-            </Pressable>
+            </Link>
+            <Link to='/signIn'>
+                <Text marginLeft color={'appBar'} fontSize={'appBar'} fontWeight={'bold'}>Sign In</Text>
+            </Link>
         </>
     )
 }
