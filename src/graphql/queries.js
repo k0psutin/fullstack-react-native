@@ -26,3 +26,12 @@ query Repositories {
     }
   }
 `
+
+export const CURRENT_USER = gql`
+query Me {
+    me {
+      id
+      username   
+    }
+  }
+`
