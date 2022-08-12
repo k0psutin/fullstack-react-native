@@ -6,12 +6,12 @@ import Text from "./Text"
 const styles = StyleSheet.create({
     repositoryItem: {
         height: 'auto',
-        width: 'auto',
-        maxWidth: '95%',
+        alignSelf: 'stretch',
         backgroundColor: theme.colors.repositoryItemBackground
     },
     topSection: {
         flexDirection: 'column',
+        flexShrink: 1
     },
     subSection: {
         alignItems: 'baseline'
@@ -33,7 +33,7 @@ const styles = StyleSheet.create({
     bottomSection: {
         flexDirection: 'column',
         alignItems: 'center' 
-    }
+    },
 });
 
 const RepositoryItem = ({ item }) => {
@@ -56,7 +56,7 @@ const RepositoryItem = ({ item }) => {
                 </View>
                 <View style={styles.topSection}>
                     <Text marginLeft marginBottom fontWeight={'bold'} fontSize={'itemHeader'}>{fullName}</Text>
-                    <Text marginLeft marginBottom color={'subheading'}>{description}</Text>
+                    <Text style={styles.textWrap} marginLeft marginBottom color={'subheading'}>{description}</Text>
                     <View style={styles.subSection}>
                         <Text marginLeft rounded backgroundColor={'primary'} fontSize={'itemHeader'}>{language}</Text>
                     </View>
