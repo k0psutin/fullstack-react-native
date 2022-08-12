@@ -7,14 +7,14 @@ import createApolloClient from './src/utils/apolloClient'
 
 const apolloClient = createApolloClient()
 
-const App = () => (
-  <>
+const App = () => {
+  return (
     <NativeRouter>
       <ApolloProvider client={apolloClient}>
-      <Main />
+        <Main />
       </ApolloProvider>
     </NativeRouter>
-  </>
-)
+  )
+}
 
 export default App
