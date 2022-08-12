@@ -1,0 +1,11 @@
+import { useQuery } from '@apollo/client'
+import { FETCH_REPOSITORIES } from '../graphql/queries';
+
+const useRepositories = () => {
+  const { data, error, loading } = useQuery(FETCH_REPOSITORIES, { fetchPolicy: 'cache-and-network' })
+  const repositories = data ? data.repositories.edges.map((edge) => edge.node) : []
+
+  return { repositories, error, loading };
+};
+
+export default useRepositories;
