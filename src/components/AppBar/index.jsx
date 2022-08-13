@@ -1,7 +1,7 @@
 import { View, StyleSheet } from 'react-native';
 import Constants from 'expo-constants';
 
-import theme from '../theme'
+import theme from '../../theme'
 import NavBar from './NavBar';
 import { ScrollView } from 'react-native';
 

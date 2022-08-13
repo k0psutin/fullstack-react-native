@@ -1,7 +1,7 @@
 import { Image, StyleSheet, View } from "react-native"
-import { convertThousands } from "../helpers/textHelpers";
-import theme from "../theme";
-import Text from "./Text"
+import { convertThousands } from '../../helpers/textHelpers'
+import theme from "../../theme";
+import Text from "../Shared/Text"
 
 const styles = StyleSheet.create({
     repositoryItem: {
@@ -49,7 +49,7 @@ const RepositoryItem = ({ item }) => {
     } = item
 
     return (
-        <View style={styles.repositoryItem}>
+        <View testID='repositoryItem' style={styles.repositoryItem}>
             <View style={styles.topPart}>
                 <View style={styles.topSection}>
                     <Image style={styles.avatarImg} source={{ uri: ownerAvatarUrl }} resizeMode={'cover'}></Image>

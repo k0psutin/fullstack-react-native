@@ -1,11 +1,12 @@
 import { Pressable } from "react-native"
 import { Link } from "react-router-native"
-import useCurrentUser from "../hooks/useCurrentUser"
-import Text from "./Text"
-import useSignOut from "../hooks/useSignOut"
+import useCurrentUser from "../../hooks/useCurrentUser"
+import Text from "../Shared/Text"
+import useSignOut from "../../hooks/useSignOut"
 
 const NavBar = () => {
-    const { data: { me } } = useCurrentUser()
+    const { data } = useCurrentUser()
+    const me = data?.me
     const [signOut] = useSignOut()
 
     return (
