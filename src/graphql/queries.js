@@ -27,6 +27,29 @@ query Repositories {
   }
 `
 
+export const FETCH_SINGLE_REPOSITORY = gql`
+query Repository($repositoryId: ID!) {
+  repository(id: $repositoryId) {
+    id
+    ownerName
+    name
+    createdAt
+    fullName
+    ratingAverage
+    reviewCount
+    stargazersCount
+    watchersCount
+    forksCount
+    openIssuesCount
+    url
+    ownerAvatarUrl
+    description
+    language
+    userHasReviewed
+  }
+}
+`
+
 export const CURRENT_USER = gql`
 query Me {
     me {

@@ -1,4 +1,4 @@
-import RepositoryList from "../../components/RepositoryList/RepositoryList";
+import RepositoryList from "../../components/Repositories/RepositoryList";
 import { render } from '@testing-library/react-native'
 import { convertThousands } from "../../helpers/textHelpers";
 

@@ -62,12 +62,11 @@ const styles = StyleSheet.create({
         color: theme.colors.repositoryItemBackground,
         height: 50,
         borderRadius: 5,
-        padding: 15,
-        marginLeft: 10,
-        marginRight: 10,
-        marginTop: 10,
+        paddingTop: 10,
+        margin: 10,
         alignSelf: 'stretch',
-        textAlign: 'center'
+        textAlign: 'center',
+        fontSize: theme.fontSizes.itemHeader
     },
     primaryBackgroundColor: {
         backgroundColor: theme.colors.primary,
