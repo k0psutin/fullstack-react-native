@@ -6,7 +6,18 @@ const SignInContainer = () => {
     const [signIn] = useSignIn()
     const navigate = useNavigate()
 
-    return <SignIn signIn={signIn} navigate={navigate}/>
+    const onSubmit = async (values) => {
+        const { username, password } = values
+
+        try {
+          await signIn({ username, password })
+          navigate('/', { replace: true })
+        } catch (e) {
+            console.log(e)
+        }
+    }
+
+    return <SignIn onSubmit={onSubmit} />
 }
 
 export default SignInContainer

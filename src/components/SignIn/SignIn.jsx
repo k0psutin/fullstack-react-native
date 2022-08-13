@@ -42,18 +42,7 @@ const SignInForm = ({ onSubmit }) => {
     )
 }
 
-const SignIn = ({ signIn, navigate }) => {
-    const onSubmit = async (values) => {
-        const { username, password } = values
-
-        try {
-          await signIn({ username, password })
-          navigate('/', { replace: true })
-        } catch (e) {
-            console.log(e)
-        }
-    }
-    
+const SignIn = ({ onSubmit }) => {
     return (
         <Formik 
             validationSchema={validationSchema}
