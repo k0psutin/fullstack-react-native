@@ -9,7 +9,8 @@ const styles = StyleSheet.create({
     container: {
         paddingTop: Constants.statusBarHeight,
         backgroundColor: theme.colors.textPrimary,
-        height: 100,
+        marginTop: 10,
+        height: 120,
         width: 'auto',
         alignItems: 'center',
         justifyContent: 'flex-start',

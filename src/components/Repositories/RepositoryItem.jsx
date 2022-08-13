@@ -1,9 +1,11 @@
 import { Image, StyleSheet, View } from "react-native"
-import { Link } from "react-router-native"
+import * as Linking from 'expo-linking'
+import { useNavigate } from 'react-router-native'
 import { convertThousands } from '../../helpers/textHelpers'
 import theme from "../../theme";
 import Button from "../Shared/Button";
 import Text from "../Shared/Text"
+import Pressable from "react-native/Libraries/Components/Pressable/Pressable"
 
 const styles = StyleSheet.create({
     repositoryItem: {
@@ -35,16 +37,27 @@ const styles = StyleSheet.create({
     bottomSection: {
         flexDirection: 'column',
         alignItems: 'center'
-    },
+    }
 });
 
 const RepositoryItem = ({ item, showLink = false }) => {
+    const navigate = useNavigate()
+
     if (!item) {
         return null
     }
-    
+
+    const navigateTo = (id) => {
+        navigate(`/repository/${id}`)
+    }
+
+    const openGitHub = async (url) => {
+        await Linking.openURL(url)
+    }
+
     const {
         id,
+        url,
         fullName,
         description,
         language,
@@ -56,7 +69,7 @@ const RepositoryItem = ({ item, showLink = false }) => {
     } = item
 
     return (
-        <Link to={`/repository/${id}`}>
+        <Pressable onPress={() => navigateTo(id)}>
             <View testID='repositoryItem' style={styles.repositoryItem}>
                 <View style={styles.topPart}>
                     <View style={styles.topSection}>
@@ -88,9 +101,9 @@ const RepositoryItem = ({ item, showLink = false }) => {
                         <Text fontSize={'itemHeader'} color={'subheading'}>Rating</Text>
                     </View>
                 </View>
-                {showLink && <Button text={'Open in GitHub'} />}
+                {showLink && <Button onPress={() => openGitHub(url)} text={'Open in GitHub'} />}
             </View>
-        </Link>
+        </Pressable>
     )
 }
 
