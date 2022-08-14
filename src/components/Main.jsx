@@ -2,8 +2,9 @@ import { StyleSheet, View } from 'react-native';
 import { Route, Routes, Navigate } from 'react-router-native'
 import theme from '../theme';
 import AppBar from './AppBar';
-import RepositoryList from './Repositories';
-import RepositoryView from './Repositories/RepositoryView';
+import RepositoryList from './RepositoryList';
+import RepositoryView from './RepositoryList/RepositoryView';
+import Review from './ReviewForm';
 import SignIn from './SignIn';
 
 const styles = StyleSheet.create({
@@ -22,6 +23,7 @@ const Main = () => {
         <Route path='/' element={<RepositoryList />} exact />
         <Route path='/repository/:id' element={<RepositoryView />} exact />
         <Route path='/signIn' element={<SignIn />} exact />
+        <Route path='/createReview' element={<Review />} exact />
         <Route path='*' element={<Navigate to='/' replace />} />
       </Routes>
     </View>

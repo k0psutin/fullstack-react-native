@@ -68,6 +68,17 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         fontSize: theme.fontSizes.itemHeader
     },
+    error: {
+        backgroundColor: theme.colors.error,
+        height: 'auto',
+        textAlign: 'center',
+        marginTop: 10,
+        paddingTop: 5,
+        paddingBottom: 5,
+        color: theme.colors.repositoryItemBackground,
+        fontSize: theme.fontSizes.itemHeader,
+        fontWeight: theme.fontWeights.bold
+    },
     primaryBackgroundColor: {
         backgroundColor: theme.colors.primary,
         color: theme.colors.repositoryItemBackground
@@ -90,9 +101,10 @@ const styles = StyleSheet.create({
       }
 });
 
-const Text = ({ backgroundColor, button, circle, stretch, border, rounded, color, fontSize, fontWeight, style, marginLeft, marginRight, marginTop, marginBottom, ...props }) => {
+const Text = ({ backgroundColor, button, circle, error, stretch, border, rounded, color, fontSize, fontWeight, style, marginLeft, marginRight, marginTop, marginBottom, ...props }) => {
     const textStyle = [
         styles.text,
+        error && styles.error,
         circle && styles.circle,
         button && styles.button,
         stretch && styles.strecth,
