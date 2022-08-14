@@ -11,7 +11,10 @@ const styles = StyleSheet.create({
     repositoryItem: {
         height: 'auto',
         alignSelf: 'stretch',
-        backgroundColor: theme.colors.repositoryItemBackground
+        backgroundColor: theme.colors.repositoryItemBackground,
+    },
+    marginBottom: {
+        marginBottom: 10,
     },
     topSection: {
         flexDirection: 'column',
@@ -70,7 +73,7 @@ const RepositoryItem = ({ item, showLink = false }) => {
 
     return (
         <Pressable onPress={() => navigateTo(id)}>
-            <View testID='repositoryItem' style={styles.repositoryItem}>
+            <View testID='repositoryItem' style={[styles.repositoryItem, showLink && styles.marginBottom]}>
                 <View style={styles.topPart}>
                     <View style={styles.topSection}>
                         <Image style={styles.avatarImg} source={{ uri: ownerAvatarUrl }} resizeMode={'cover'}></Image>

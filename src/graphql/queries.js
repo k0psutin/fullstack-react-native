@@ -35,6 +35,22 @@ query Repository($repositoryId: ID!) {
     name
     createdAt
     fullName
+    reviews {
+      edges {
+        node {
+          id
+          userId
+          repositoryId
+          rating
+          createdAt
+          text
+          user {
+            id
+            username
+          }
+        }
+      }
+    }
     ratingAverage
     reviewCount
     stargazersCount

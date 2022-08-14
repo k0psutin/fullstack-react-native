@@ -72,11 +72,28 @@ const styles = StyleSheet.create({
         backgroundColor: theme.colors.primary,
         color: theme.colors.repositoryItemBackground
     },
+    circle: {
+        borderLeftWidth: 3,
+        borderLeftColor: theme.colors.primary,
+        borderTopWidth: 3,
+        borderTopColor: theme.colors.primary,
+        borderBottomWidth: 3,
+        borderBottomColor: theme.colors.primary,
+        borderRightWidth: 3,
+        borderRightColor: theme.colors.primary,
+        borderRadius: 50,
+        width: 75,
+        height: 75, 
+        textAlign: 'center',
+        lineHeight: 75,
+        fontSize: theme.fontSizes.appBar   
+      }
 });
 
-const Text = ({ backgroundColor, button, stretch, border, rounded, color, fontSize, fontWeight, style, marginLeft, marginRight, marginTop, marginBottom, ...props }) => {
+const Text = ({ backgroundColor, button, circle, stretch, border, rounded, color, fontSize, fontWeight, style, marginLeft, marginRight, marginTop, marginBottom, ...props }) => {
     const textStyle = [
         styles.text,
+        circle && styles.circle,
         button && styles.button,
         stretch && styles.strecth,
         border && styles.border,
