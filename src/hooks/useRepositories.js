@@ -7,8 +7,8 @@ const orderBy = {
   'LOW_RATING': { orderBy: 'RATING_AVERAGE', orderDirection: 'ASC' }
 }
 
-const useRepositories = (order = 'LATEST') => {
-  const { data, error, loading } = useQuery(FETCH_REPOSITORIES, { fetchPolicy: 'cache-and-network', variables: orderBy[order] })
+const useRepositories = (order = 'LATEST', searchKeyword = '') => {
+  const { data, error, loading } = useQuery(FETCH_REPOSITORIES, { fetchPolicy: 'cache-and-network', variables: { ...orderBy[order], searchKeyword } })
   const repositories = data ? data.repositories.edges.map((edge) => edge.node) : []
 
   return { repositories, error, loading };

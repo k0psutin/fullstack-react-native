@@ -2,6 +2,7 @@ import { FlatList, View, StyleSheet } from 'react-native'
 import { Picker } from '@react-native-picker/picker'
 import theme from '../../theme'
 import RepositoryItem from './RepositoryItem'
+import TextInput from '../Shared/TextInput'
 
 const styles = StyleSheet.create({
   separator: {
@@ -12,9 +13,13 @@ const styles = StyleSheet.create({
 
 const ItemSeparator = () => <View style={styles.separator} />
 
-const RepositoryList = ({ repositories, filter, setFilter }) => {
+const RepositoryList = ({ repositories, filter, setFilter, onSetSearchKeyword }) => {
   return (
     <>
+      <TextInput 
+       searchInput
+       onChangeText={(value) => onSetSearchKeyword(value)}
+      />
       <Picker
       selectedValue={filter}
       onValueChange={(itemValue) => setFilter(itemValue)}
