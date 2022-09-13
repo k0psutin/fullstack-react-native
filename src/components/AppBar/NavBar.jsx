@@ -24,6 +24,11 @@ const NavBar = () => {
                     <Text marginLeft color={'appBar'} fontSize={'appBar'} fontWeight={'bold'}>Sign In</Text>
                 </Link>
             }
+            {me === null &&
+                <Link to='/signUp'>
+                    <Text marginLeft color={'appBar'} fontSize={'appBar'} fontWeight={'bold'}>Sign Up</Text>
+                </Link>
+            }
             {me !== null &&
                 <Pressable onPress={async () => signOut()}>
                     <Text marginLeft color={'appBar'} fontSize={'appBar'} fontWeight={'bold'}>Sign Out</Text>
