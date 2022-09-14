@@ -13,7 +13,7 @@ const styles = StyleSheet.create({
 
 const ItemSeparator = () => <View style={styles.separator} />
 
-const RepositoryList = ({ repositories, filter, setFilter, onSetSearchKeyword }) => {
+const RepositoryList = ({ repositories, onEndReached, filter, setFilter, onSetSearchKeyword }) => {
   return (
     <>
       <TextInput 
@@ -32,6 +32,8 @@ const RepositoryList = ({ repositories, filter, setFilter, onSetSearchKeyword })
         data={repositories}
         ItemSeparatorComponent={ItemSeparator}
         renderItem={({ item }) => <RepositoryItem item={item} />}
+        onEndReached={onEndReached}
+        onEndReachedThreshold={0.5}
       />
     </>
   )

@@ -16,7 +16,12 @@ const ItemSeparator = () => <View style={styles.separator} />
 
 const RepositoryView = () => {
     const { id } = useParams()
-    const { item, reviews } = useRepository(id)
+    const { item, handleFetchMore, reviews } = useRepository(id)
+
+    const onEndReached = () => {
+        console.log('End reached')
+        handleFetchMore()
+    }
 
     return <FlatList
         data={reviews}
@@ -24,6 +29,8 @@ const RepositoryView = () => {
         keyExtractor={({ id }) => id}
         ListHeaderComponent={() => <RepositoryItem showLink item={item} />}
         ItemSeparatorComponent={ItemSeparator}
+        onEndReached={onEndReached}
+        onEndReachedThreshold={0.5}
     />
 }
 

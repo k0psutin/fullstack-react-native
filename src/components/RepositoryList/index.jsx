@@ -7,7 +7,7 @@ let timerId = null
 const RepositoryContainer = () => {
     const [filter, setFilter] = useState('LATEST')
     const [searchKeyword, setSearchKeyword] = useState('')
-    const { repositories } = useRepositories(filter, searchKeyword)
+    const { repositories, handleFetchMore } = useRepositories(filter, searchKeyword)
 
     const onSetSearchKeyword = (value) => {
         if (timerId) {
@@ -18,7 +18,11 @@ const RepositoryContainer = () => {
         }, 500);
     }
 
-    return <RepositoryList repositories={repositories} filter={filter} setFilter={setFilter} onSetSearchKeyword={onSetSearchKeyword} />
+    const onEndReached = () => {
+        handleFetchMore()
+    }
+
+    return <RepositoryList repositories={repositories} onEndReached={onEndReached} filter={filter} setFilter={setFilter} onSetSearchKeyword={onSetSearchKeyword} />
 }
 
 export default RepositoryContainer
