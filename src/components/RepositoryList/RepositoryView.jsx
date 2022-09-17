@@ -1,25 +1,15 @@
-import { FlatList, StyleSheet, View } from 'react-native'
+import { FlatList } from 'react-native'
 import { useParams } from 'react-router-native'
 import useRepository from "../../hooks/useRepository"
-import theme from '../../theme'
 import RepositoryItem from "./RepositoryItem"
-import ReviewItem from './ReviewItem'
-
-const styles = StyleSheet.create({
-    separator: {
-        height: 10,
-        backgroundColor: theme.colors.background
-    },
-})
-
-const ItemSeparator = () => <View style={styles.separator} />
+import ReviewItem from '../Shared/ReviewItem'
+import ItemSeparator from '../Shared/ItemSeparator'
 
 const RepositoryView = () => {
     const { id } = useParams()
     const { item, handleFetchMore, reviews } = useRepository(id)
 
     const onEndReached = () => {
-        console.log('End reached')
         handleFetchMore()
     }
 

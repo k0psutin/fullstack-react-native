@@ -19,6 +19,11 @@ const NavBar = () => {
                     <Text marginLeft color={'appBar'} fontSize={'appBar'} fontWeight={'bold'}>Create a review</Text>
                 </Link>
             }
+            {me !== null &&
+                <Link to='/myReviews'>
+                    <Text marginLeft color={'appBar'} fontSize={'appBar'} fontWeight={'bold'}>My reviews</Text>
+                </Link>
+            }
             {me === null &&
                 <Link to='/signIn'>
                     <Text marginLeft color={'appBar'} fontSize={'appBar'} fontWeight={'bold'}>Sign In</Text>

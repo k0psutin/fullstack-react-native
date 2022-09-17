@@ -1,7 +1,7 @@
 import { format } from "date-fns"
 import { View, StyleSheet } from "react-native"
 import theme from "../../theme"
-import Text from "../Shared/Text"
+import Text from "./Text"
 
 const styles = StyleSheet.create({
     container: {

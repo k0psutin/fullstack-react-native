@@ -77,10 +77,30 @@ query Repository($repositoryId: ID!, $first: Int, $after: String) {
 `
 
 export const CURRENT_USER = gql`
-query Me {
-    me {
-      id
-      username   
+query Me($includeReviews: Boolean = false, $first: Int, $after: String) {
+  me {
+    id
+    username
+    reviews(first: $first, after: $after) @include(if: $includeReviews) {
+    edges {
+      node {
+        id
+        userId
+        repositoryId
+        rating
+        createdAt
+        text
+        user {
+          id
+          username
+        }
+      }
+    }
+    pageInfo {
+      endCursor
+      hasNextPage
     }
   }
+}
+}
 `

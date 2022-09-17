@@ -1,17 +1,8 @@
-import { FlatList, View, StyleSheet } from 'react-native'
+import { FlatList } from 'react-native'
 import { Picker } from '@react-native-picker/picker'
-import theme from '../../theme'
 import RepositoryItem from './RepositoryItem'
 import TextInput from '../Shared/TextInput'
-
-const styles = StyleSheet.create({
-  separator: {
-    height: 10,
-    backgroundColor: theme.colors.background
-  },
-})
-
-const ItemSeparator = () => <View style={styles.separator} />
+import ItemSeparator from '../Shared/ItemSeparator'
 
 const RepositoryList = ({ repositories, onEndReached, filter, setFilter, onSetSearchKeyword }) => {
   return (
