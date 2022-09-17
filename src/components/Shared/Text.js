@@ -62,9 +62,7 @@ const styles = StyleSheet.create({
         color: theme.colors.repositoryItemBackground,
         height: 50,
         borderRadius: 5,
-        paddingTop: 10,
-        margin: 10,
-        alignSelf: 'stretch',
+        padding: 10,
         textAlign: 'center',
         fontSize: theme.fontSizes.itemHeader
     },
@@ -82,6 +80,9 @@ const styles = StyleSheet.create({
     primaryBackgroundColor: {
         backgroundColor: theme.colors.primary,
         color: theme.colors.repositoryItemBackground
+    },
+    errorBackgroundColor: {
+        backgroundColor: theme.colors.error
     },
     circle: {
         borderLeftWidth: 3,
@@ -111,6 +112,7 @@ const Text = ({ backgroundColor, button, circle, error, stretch, border, rounded
         border && styles.border,
         rounded && styles.rounded,
         backgroundColor === 'primary' && styles.primaryBackgroundColor,
+        backgroundColor === 'error' && styles.errorBackgroundColor,
         color === 'subheading' && styles.colorSubheading,
         color === 'textSecondary' && styles.colorTextSecondary,
         color === 'primary' && styles.colorPrimary,

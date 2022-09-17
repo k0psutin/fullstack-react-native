@@ -3,7 +3,7 @@ import { CURRENT_USER } from '../graphql/queries';
 
 const useCurrentUser = (includeReviews = false) => {
   const variables = { first: 5, after: '', includeReviews }
-  const { data, error, fetchMore, loading } = useQuery(CURRENT_USER, { fetchPolicy: 'cache-and-network', variables })
+  const { data, error, fetchMore, refetch, loading } = useQuery(CURRENT_USER, { fetchPolicy: 'cache-and-network', variables })
 
   const handleFetchMore = () => {
     const canFetchMore = !loading && data?.me?.reviews?.pageInfo?.hasNextPage
@@ -22,7 +22,7 @@ const useCurrentUser = (includeReviews = false) => {
 
   const reviews = data?.me?.reviews?.edges.map((edge) => edge.node)
 
-  return { data, handleFetchMore, reviews, error, loading };
+  return { data, handleFetchMore, refetch, reviews, error, loading };
 };
 
 export default useCurrentUser;

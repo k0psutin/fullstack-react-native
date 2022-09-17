@@ -94,6 +94,10 @@ query Me($includeReviews: Boolean = false, $first: Int, $after: String) {
           id
           username
         }
+        repository {
+          ownerName
+          name
+        }
       }
     }
     pageInfo {
